@@ -1,44 +1,45 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar>
+      <ion-title>Home</ion-title>
+    </ion-navbar>
+  </ion-header>
 
-<ion-content padding class="home">
- <ion-grid *ngIf="weather">
-<ion-row >
-  <ion-col width-50 offset-25>
-    <h2 class ="location"> {{weather.location.name}} </h2>
-    <div class="icon" *ngFor="let info of weather.weather"><img src="{{info.icon}}" alt=""></div>
-    <h3 class="desc"*ngFor="let info2 of weather.weather" > {{info2.description}} </h3>
-    <h1 class ="temp"> {{(weather.main.temp-32)/2}}&deg;</h1>
-  </ion-col>
-</ion-row>
+  <ion-content padding class="home">
+   <ion-grid *ngIf="weather">
+  <ion-row >
+    <ion-col width-50 offset-25>
 
-<ion-row>
+      <h2 class ="loc"> {{weather.location.name}} </h2>
+      <div class="icon" ><img src="{{weather.current.condition.icon}}" alt=""></div>
+      <h3 class="desc"> {{weather.current.condition.text}} </h3>
+      <h1 class ="temp"> {{weather.current.temp_c}}&deg; </h1>
+    </ion-col>
+  </ion-row>
 
-  <ion-col width-100>
-    <ion-list>
-      <ion-item>
-<strong>Humidity:</strong>{{weather.main.humidity}}
-      </ion-item>
+  <ion-row>
 
-      <ion-item>
-          <strong>Visibility:</strong>{{weather.visibility}}
-                </ion-item>
+    <ion-col width-100>
+      <ion-list>
+        <ion-item>
+  <strong>Humidity:</strong>{{weather.current.humidity}}
+        </ion-item>
 
-                <ion-item>
-                    <strong>Wind Speed:</strong>{{weather.wind.speed}}
-                          </ion-item>
+        <ion-item>
+            <strong>Visibility:</strong>{{weather.current.vis_km}}
+                  </ion-item>
 
-                          <ion-item>
-                              <strong>Pressure:</strong>{{weather.main.pressure}}
-                                    </ion-item>
+                  <ion-item>
+                      <strong>Wind Speed:</strong>{{weather.current.wind_kph}}
+                            </ion-item>
+
+                            <ion-item>
+                                <strong>Pressure:</strong>{{weather.current.pressure_in}}
+                                      </ion-item>
 
 
-    </ion-list>
-  </ion-col>
-</ion-row>
+      </ion-list>
+    </ion-col>
+  </ion-row>
 
- </ion-grid>
-</ion-content>
+   </ion-grid>
+  </ion-content>
